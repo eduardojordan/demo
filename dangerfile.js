@@ -3,16 +3,24 @@ import { danger } from "danger";
 
 
 // CAMBIOS EN ARCHIVO SWIFT  ***************************
-const docsSwift = danger.git.fileMatch("**/*.swift")
-if (docsSwift.edited) {
- message("MESSAGE !!!Se han realizado cambios en archivo .swift")
- } 
+// const docsSwift = danger.git.fileMatch("**/*.swift")
+// if (docsSwift.edited) {
+//  message("MESSAGE !!!Se han realizado cambios en archivo .swift")
+//  } 
 
-//CAMBIOS DE VERSION  ***************************
-const versionCheck = danger.git.fileMatch("**/*.pbxproj")
+//CAMBIOS DE VERSION  *************************** MARKETING_VERSION
+const versionCheck = danger.git.fileMatch("**/*project.pbxproj")
 if (versionCheck.edited) {
   warn("WARNING !!!Se han realizado cambios de Version del proyecto")
 }
+
+
+
+// const versionCheck = danger.git.modified_files("**/*.pbxproj")
+// if (versionCheck.edited) {
+//   warn("WARNING !!!Se han realizado cambios de Version del proyecto 2" )
+// }
+
 
 // CAMBIOS BSMOPERATIONFACTORY
 const operationFactory = danger.git.fileMatch("**/*BSMOperationFactory")
@@ -20,7 +28,7 @@ if (operationFactory.edited) {
   fail("Se han realizado cambios en el archivo BSMOperationFactory")
  } 
 
-// CAMBIOS BSMOPERATIONFACTORY
+// CAMBIOS VIEWCONTROLLERS
 const viewChek = danger.git.fileMatch("**/*ViewController")
 if (viewChek.edited) {
   fail("Se han realizado cambios en el archivo ViewController")
