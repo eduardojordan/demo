@@ -1,9 +1,10 @@
 
-import { danger } from "danger"
+import { danger } from "danger";
 
+
+
+CAMBIOS EN CUALQUIER ARCHIVO SWIFT  ***************************
 const docsSwift = danger.git.fileMatch("**/*.swift")
-
-// CAMBIOS EN CUALQUIER ARCHIVO SWIFT  ***************************
 if (docsSwift.edited) {
  fail("FAIL !!! Se han realizado cambios en el proyecto archivo .swift")
 // process.exit(1);
@@ -12,10 +13,10 @@ if (docsSwift.edited) {
  } 
 
 // CAMBIOS DE VERSION  ***************************
-const versionCheck = danger.git.fileMatch("**/*.xcworkspacedata")
-if (versionCheck.edited) {
-   message(" MESSAGE  !!! Se han realizado cambios a nivel de .xcworkspacedata")
-}
+// const versionCheck = danger.git.fileMatch("**/*.xcworkspacedata")
+// if (versionCheck.edited) {
+//    message(" MESSAGE  !!! Se han realizado cambios a nivel de .xcworkspacedata")
+// }
 
 // CAMBIOS DE LIBRERIA  ***************************
 // const carthageCheck = danger.git.fileMatch("**/*./Carthage")
@@ -23,23 +24,21 @@ if (versionCheck.edited) {
 //    warn(" WARNING !!! Se han realizado cambios a nivel de .Carthage")
 // }
 
-// // Added (or removed) library files need to be added (or removed) from the
-// // Xcode project to avoid breaking things for our Carthage/manual framework.
-// const addedSwiftLibraryFiles = danger.git.createdFiles.contains { $0.fileType == .swift && $0.hasPrefix("Sources") }
-// const deletedSwiftLibraryFiles = danger.git.deletedFiles.contains { $0.fileType == .swift && $0.hasPrefix("Sources") }
-// const modifiedCarthageXcodeProject = danger.git.modifiedFiles.contains { $0.contains("PruebasDanger.xcodeproj") }
-// if (addedSwiftLibraryFiles || deletedSwiftLibraryFiles) && !modifiedCarthageXcodeProject {
-//     fail("Added or removed library files require the Carthage Xcode project to be updated. See the Readme")
-// }
-
-// const carthageCheck2 = danger.git.modified_files.includes("/Carthage")
 
 
+
+// const libraryCheck = danger.git.modified_files("./Carthage")
 // // CAMBIOS DE LIBRERIA  ***************************
-const libraryCheck = danger.git.fileMatch('./Cartaghe') 
-if (libraryCheck.edited) {
-        fail(" ERROR !!! CAMBIO EN LIBRERIAS DE APP ")
-    }
+// // const libraryCheck = danger.git.contains("/Users/ejordanm/Desktop/Demo/Carthage ") 
+// if (libraryCheck.edited) {
+//         fail(" ERROR LIBRERIA !!! CAMBIO EN LIBRERIAS DE APP ")
+//     }
+
+// const lockfileChanged = danger.git.modified_files.includes('Carthage')
+// if (lockfileChanged.edited) {
+//         fail(" ERROR LIBRERIA !!! CAMBIO EN LIBRERIAS DE APP ")
+//     }
+
 
 
 
@@ -50,6 +49,14 @@ if (libraryCheck.edited) {
 // markdown("MARKDOWN EXAMPLE !!!")
 
 
+
+
+// const added_swift_library_files = git.added_files.grep(/Sources.*\.swift/).empty?
+// const deleted_swift_library_files = git.deleted_files.grep(/Sources.*\.swift/).empty?
+// const modified_carthage_xcode_project = !(git.deleted_files.grep(/Demo\.xcodeproj/).empty?)
+// if (added_swift_library_files || deleted_swift_library_files) && modified_carthage_xcode_project{
+//   fail("Added or removed library files require the Carthage Xcode project to be updated.")
+// }
 
 
 
