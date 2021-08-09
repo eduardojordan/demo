@@ -12,7 +12,7 @@ if (docsSwift.edited) {
  } 
 
 // CAMBIOS DE VERSION  ***************************
-const versionCheck = danger.git.fileMatch("**/*.xcworkspacedata")
+const versionCheck = danger.git.fileMatch("**/*project.pbxproj")
 if (versionCheck.edited) {
    message(" MESSAGE  !!! Se han realizado cambios a nivel de .xcworkspacedata")
 }
